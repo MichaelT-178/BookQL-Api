@@ -2,6 +2,16 @@
 # [Link to Api Landing Page](https://www.target.com/)
 This is the GraphQL api I made for the [Bookeo](https://www.target.com/) website.
 
+## Technologies Used
+- GraphQL
+- Python
+- FastAPI
+- Strawberry
+- SQLite3
+- Petite-Vue (Landing Page)
+- Render 
+- Cloudflare
+
 ## How to Query the Api
 Open the following Link in your browser.
 ```
