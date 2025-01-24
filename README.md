@@ -1,8 +1,8 @@
 # Bookeo GraphQL Api
-## [Link to Api Landing Page](target.com)
-This is the GraphQL api I made for the [Bookeo](target.com) website.
+# [Link to Api Landing Page](https://www.target.com/)
+This is the GraphQL api I made for the [Bookeo](https://www.target.com/) website.
 
-## Play With the Api 
+## How to Query the Api
 Open the following Link in your browser.
 ```
 target.com/grapqhl
