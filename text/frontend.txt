@@ -1,0 +1,92 @@
+1. 
+
+npm install @apollo/client graphql
+npm install @vue/apollo-composable
+
+
+
+touch apollo-client.js
+
+
+
+
+
+
+
+
+<template>
+  <div>
+    <h1>GraphQL Data</h1>
+    <div v-if="loading">Loading...</div>
+    <div v-else-if="error">Error: {{ error.message }}</div>
+    <div v-else>
+      <h2>Author Details</h2>
+      <ul>
+        <li>ID: {{ author.id }}</li>
+        <li>Name: {{ author.name }}</li>
+        <li>Age: {{ author.age }}</li>
+        <li>Nationality: {{ author.nationality }}</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { computed } from 'vue';
+import { useQuery } from '@vue/apollo-composable';
+import { gql } from '@apollo/client';
+
+// Define the GraphQL query
+const GET_AUTHOR = gql`
+  query {
+    getAuthor(id: 1) {
+      id
+      name
+      age
+      nationality
+    }
+  }
+`;
+
+// Execute the query using Apollo
+const { result: data, loading, error } = useQuery(GET_AUTHOR);
+
+// Extract the author data from the result
+const author = computed(() => data?.value?.getAuthor);
+</script>
+
+
+
+
+
+
+main.js 
+
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import apolloClient from './lib/apollo-client';
+import { provideApolloClient } from '@vue/apollo-composable';
+
+const app = createApp(App);
+
+// Provide Apollo Client globally
+provideApolloClient(apolloClient);
+
+app.use(router).mount('#app');
+
+
+
+
+apollo-client.js
+
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+
+const graphqlEndpoint = 'http://127.0.0.1:8000/graphql';
+
+const apolloClient = new ApolloClient({
+  uri: graphqlEndpoint,
+  cache: new InMemoryCache(),
+});
+
+export default apolloClient;

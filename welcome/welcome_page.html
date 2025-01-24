@@ -1,0 +1,331 @@
+<div v-scope="{
+    author: { name: 'Alice', age: 29, nationality: 'British' },
+    book: { title: 'Lord of the Rings', publicationYear: 1954, genre: 'fantasy', authorId: 2 },
+    copyText
+}" class="container">
+    <div class="content">
+        <h1 class="hello">Bookeo GraphQL Api</h1>
+    </div>
+
+    <div class="links">
+        <a href="/graphql" class="link" target="_blank">GraphQL UI</a>
+        <a href="/docs" class="link" target="_blank">Docs</a>
+        <a href="https://github.com/MichaelT-W23/Bookeo-GraphQL-Api" class="link" target="_blank">Github Repo</a>
+        <a href="https://github.com/MichaelT-W23/Bookeo-GraphQL-Api" class="link" target="_blank">Bookeo Website</a>
+    </div>
+
+    <div class="code-blocks">
+
+        <!-- GraphQL Mutations -->
+        <h2 class="section-title">GraphQL Mutations</h2>
+
+        <div class="mutation-block">
+            <h3>Create Author</h3>
+            <div class="code-block">
+                <pre><code>mutation {
+    createAuthor(name: "{{ author.name }}", age: {{ author.age }}, nationality: "{{ author.nationality }}") {
+        id
+        name
+        age
+        nationality
+    }
+}</code></pre>
+                <button @click='copyText($event, `mutation {\n    createAuthor(name: "${author.name}", age: ${author.age}, nationality: "${author.nationality}") {\n        id\n        name\n        age\n        nationality\n    }\n}`)' class="copy-btn">Copy</button>
+            </div>
+        </div>
+
+        <div class="inputs">
+            <label>
+                Name:
+                <input type="text" v-model="author.name">
+            </label>
+            <label>
+                Age:
+                <input type="number" v-model="author.age">
+            </label>
+            <label>
+                Nationality:
+                <input type="text" v-model="author.nationality">
+            </label>
+        </div>
+
+        <div class="mutation-block">
+            <h3>Create Book</h3>
+            <div class="code-block">
+                <pre><code>mutation {
+    createBook(title: "{{ book.title }}", publicationYear: {{ book.publicationYear }}, genre: "{{ book.genre }}", authorId: {{ book.authorId }}) {
+        id
+        title
+        publicationYear
+        genre
+        authorId
+    }
+}</code></pre>
+                <button @click='copyText($event, `mutation {\n    createBook(title: "${book.title}", publicationYear: ${book.publicationYear}, genre: "${book.genre}", authorId: ${book.authorId}) {\n        id\n        title\n        publicationYear\n        genre\n        authorId\n    }\n}`)' class="copy-btn">Copy</button>
+            </div>
+        </div>
+
+        <div class="inputs">
+            <label>
+                Title:
+                <input type="text" v-model="book.title">
+            </label>
+            <label>
+                Publication Year:
+                <input type="number" v-model="book.publicationYear">
+            </label>
+            <label>
+                Genre:
+                <input type="text" v-model="book.genre">
+            </label>
+            <label>
+                Author ID:
+                <input type="number" v-model="book.authorId">
+            </label>
+        </div>
+
+
+        <div v-for="mutation in simpleMutations" :key="mutation.title" class="query-block">
+            <h3>{{ mutation.title }}</h3>
+            <div class="code-block">
+                <pre><code>{{ mutation.code }}</code></pre>
+                <button @click='copyText($event, mutation.code)' class="copy-btn">Copy</button>
+            </div>
+        </div>
+
+
+        <!-- GraphQL Queries -->
+        <h2 class="section-title">GraphQL Queries</h2>
+
+        <div v-for="query in queries" :key="query.title" class="query-block">
+            <h3>{{ query.title }}</h3>
+            <div class="code-block">
+                <pre><code>{{ query.code }}</code></pre>
+                <button @click='copyText($event, query.code)' class="copy-btn">Copy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/petite-vue"></script>
+
+<script>
+const copyText = (event, text) => {
+    navigator.clipboard.writeText(text).then(() => {
+        const button = event.target;
+        button.style.backgroundColor = '#007bff';
+        button.style.color = '#ffffff';
+        button.textContent = 'Copied!';
+
+
+        setTimeout(() => {
+            button.style.backgroundColor = '#ffffff';
+            button.style.color = '#007bff';
+            button.textContent = 'Copy';
+        }, 1500);
+    });
+}
+
+const simpleMutations = [
+    {
+      title: "Delete Author By ID",
+      code: `mutation {
+    deleteAuthor(authorId: 1)
+}`
+    },
+    {
+      title: "Delete Book By ID",
+      code: `mutation {
+    deleteBook(bookId: 1)
+}`
+  }
+]
+
+const queries = [
+  {
+      title: "Get Author By ID",
+      code: `query {
+  getAuthor(id: 1) {
+      id
+      name
+      age
+      nationality
+      books {
+        id
+        title
+        publicationYear
+        genre
+        authorId
+      }
+  }
+}`
+  },
+  {
+      title: "Get All Authors",
+      code: `query {
+  getAllAuthors {
+      id
+      name
+      age
+      nationality
+      books {
+        id
+        title
+        publicationYear
+        genre
+        authorId
+      }
+  }
+}`
+  },
+  {
+      title: "Get Book By ID",
+      code: `query {
+  getBook(id: 1) {
+      id
+      title
+      publicationYear
+      genre
+      authorId
+  }
+}`
+  },
+  {
+      title: "Get All Books",
+      code: `query {
+  getAllBooks {
+      id
+      title
+      publicationYear
+      genre
+      authorId
+  }
+}`
+  },
+  {
+      title: "Get All Genres",
+      code: `query {
+  getAllGenres
+}`
+  },
+  {
+      title: "Get Books By Genre",
+      code: `query {
+  getBooksByGenre(genre: "Fantasy") {
+      id
+      title
+      publicationYear
+      genre
+      authorId
+  }
+}`
+  }
+];
+
+PetiteVue.createApp({
+    copyText,
+    author: { name: 'Alice', age: 29, nationality: 'British' },
+    book: { title: 'Lord of the Rings', publicationYear: 1954, genre: 'fantasy', authorId: 2 }
+}).mount();
+
+</script>
+
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* background: linear-gradient(135deg, #f8b195, #f67280, #c06c84); */
+    /* background: linear-gradient(135deg, #a2d9ff, #73bdfd, #4086e8); */
+    /* background: linear-gradient(135deg, #d1a2ff, #b173fd, #8e40e8); */
+    background: linear-gradient(135deg, #6cbde4, #2a6ca3, #8e40e8);
+    /* background: linear-gradient(135deg, #6cbde4, #5e7bd8, #2a6ca3, #8e40e8); */
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.inputs {
+    margin-bottom: 20px;
+}
+
+.inputs label {
+    display: block;
+    margin-bottom: 17px;
+    font-size: 14px;
+}
+
+.inputs input {
+    margin-top: 4px;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.code-block {
+    position: relative;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+    color: #f5f5f5;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffffff;
+    color: #007bff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: #e0f7ff;
+}
+
+.section-title {
+    margin-top: 40px;
+    font-size: 22px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 5px;
+}
+
+</style>
