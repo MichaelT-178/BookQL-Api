@@ -142,6 +142,36 @@ const simpleMutations = [
 ]
 
 const queries = [
+    {
+      title: "Get All Authors",
+      code: `query {
+  getAllAuthors {
+      id
+      name
+      age
+      nationality
+      books {
+        id
+        title
+        publicationYear
+        genre
+        authorId
+      }
+  }
+}`
+  },
+  {
+      title: "Get All Books",
+      code: `query {
+  getAllBooks {
+      id
+      title
+      publicationYear
+      genre
+      authorId
+  }
+}`
+  },
   {
       title: "Get Author By ID",
       code: `query {
@@ -161,39 +191,9 @@ const queries = [
 }`
   },
   {
-      title: "Get All Authors",
-      code: `query {
-  getAllAuthors {
-      id
-      name
-      age
-      nationality
-      books {
-        id
-        title
-        publicationYear
-        genre
-        authorId
-      }
-  }
-}`
-  },
-  {
       title: "Get Book By ID",
       code: `query {
   getBook(id: 1) {
-      id
-      title
-      publicationYear
-      genre
-      authorId
-  }
-}`
-  },
-  {
-      title: "Get All Books",
-      code: `query {
-  getAllBooks {
       id
       title
       publicationYear
