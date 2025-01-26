@@ -1,5 +1,5 @@
 # BookQL Api
-# [Link to Api Landing Page](https://www.target.com/)
+# [Api Landing Page](https://api.bookql.com/)
 This is the GraphQL api I made for the [BookQL](https://www.target.com/) website.
 
 ## Technologies Used
@@ -15,7 +15,7 @@ This is the GraphQL api I made for the [BookQL](https://www.target.com/) website
 ## How to Query the Api
 Open the following Link in your browser.
 ```
-target.com/grapqhl
+https://api.bookql.com/grapqhl
 ```
 
 # Queries
