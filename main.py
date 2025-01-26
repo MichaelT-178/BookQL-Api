@@ -35,5 +35,3 @@ app.include_router(graphql_app, prefix='/graphql')
 async def serve_html():
     html_file = pathlib.Path('welcome/landing_page.html')
     return HTMLResponse(content=html_file.read_text())
-
-app.mount("/static", StaticFiles(directory="static"), name="static")
