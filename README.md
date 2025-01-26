@@ -1,6 +1,6 @@
 # BookQL Api
 # [Link to Api Landing Page](https://www.target.com/)
-This is the GraphQL api I made for the [Bookeo](https://www.target.com/) website.
+This is the GraphQL api I made for the [BookQL](https://www.target.com/) website.
 
 ## Technologies Used
 - GraphQL
