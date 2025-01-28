@@ -167,3 +167,6 @@ mutation {
     deleteBook(bookId: 1)
 }
 ```
+
+# Attribution
+favicon by https://www.flaticon.com/authors/popo2021
