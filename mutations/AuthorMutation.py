@@ -38,4 +38,4 @@ class AuthorMutation:
             session.delete(author)
             session.commit()
             
-            return f"{author.name} and all their books have been successfully deleted."
+            return f"{author.name} and all their books have been successfully deleted!"

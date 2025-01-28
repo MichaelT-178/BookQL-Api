@@ -1,7 +1,7 @@
 from pydantic import ValidationError
 from sqlmodel import Session
 import strawberry
-from graphql_types import BookType
+from graphql_types import AuthorType, BookType
 from database.models import Book
 from database.db import engine
 
@@ -23,12 +23,19 @@ class BookMutation:
                 session.commit()
                 session.refresh(validated_book)
 
+                author = validated_book.author
+
                 return BookType(
-                    id=validated_book.id, 
-                    title=validated_book.title, 
+                    id=validated_book.id,
+                    title=validated_book.title,
                     publicationYear=validated_book.publicationYear,
-                    genre=validated_book.genre, 
-                    author_id=validated_book.author_id
+                    genre=validated_book.genre,
+                    author=AuthorType(
+                        id=author.id,
+                        name=author.name,
+                        age=author.age,
+                        nationality=author.nationality
+                    )
                 )
             
         except ValidationError as e:
@@ -46,5 +53,5 @@ class BookMutation:
             session.delete(book_to_delete)
             session.commit()
             
-            return f"Book with ID {book_id} has been successfully deleted."
+            return f"Book with ID {book_id} has been successfully deleted!"
         

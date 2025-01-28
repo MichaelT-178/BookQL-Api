@@ -47,7 +47,12 @@ query {
       title
       publicationYear
       genre
-      authorId
+      author {
+        id
+        name
+        age
+        nationality
+      }
   }
 }
 ```
@@ -79,7 +84,12 @@ query {
       title
       publicationYear
       genre
-      authorId
+      author {
+        id
+        name
+        age
+        nationality
+      }
   }
 }
 ```
@@ -133,7 +143,12 @@ mutation {
         title
         publicationYear
         genre
-        authorId
+        author {
+          id
+          name
+          age
+          nationality
+        }
     }
 }
 ```

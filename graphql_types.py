@@ -1,13 +1,5 @@
-from typing import List
+from typing import List, Optional
 import strawberry
-
-@strawberry.type
-class BookType:
-    id: int
-    title: str
-    publicationYear: int
-    genre: str
-    author_id: int
 
 @strawberry.type
 class AuthorType:
@@ -15,4 +7,12 @@ class AuthorType:
     name: str
     age: int
     nationality: str
-    books: List[BookType]
+    books: Optional[List["BookType"]] = None # Quotes because its a forward reference
+
+@strawberry.type
+class BookType:
+    id: int
+    title: str
+    publicationYear: int
+    genre: str
+    author: AuthorType

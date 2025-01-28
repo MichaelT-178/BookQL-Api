@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
 import strawberry
-from graphql_types import BookType
+from graphql_types import AuthorType, BookType
 from database.models import Book
 from database.db import engine
 
@@ -20,7 +20,12 @@ class BookQuery:
                     title=book.title,
                     publicationYear=book.publicationYear,
                     genre=book.genre,
-                    author_id=book.author_id
+                    author=AuthorType(
+                        id=book.author.id,
+                        name=book.author.name,
+                        age=book.author.age,
+                        nationality=book.author.nationality
+                    )
                 )
                 for book in results
             ]
@@ -28,18 +33,25 @@ class BookQuery:
     @strawberry.field
     def get_book(self, id: int) -> BookType:
         with Session(engine) as session:
-            book = session.get(Book, id)
+            statement = select(Book).where(Book.id == id)
+            book = session.exec(statement).first()
 
             if not book:
-                raise HTTPException(status_code=404, detail='Book not found')
-            
+                raise HTTPException(status_code=404, detail="Book not found")
+
             return BookType(
-                id=book.id, 
-                title=book.title, 
+                id=book.id,
+                title=book.title,
                 publicationYear=book.publicationYear,
-                genre=book.genre, 
-                author_id=book.author_id
+                genre=book.genre,
+                author=AuthorType(
+                    id=book.author.id,
+                    name=book.author.name,
+                    age=book.author.age,
+                    nationality=book.author.nationality
+                )
             )
+
     
     @strawberry.field
     def get_all_genres(self) -> list[str]:

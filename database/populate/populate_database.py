@@ -15,7 +15,7 @@ def add_authors_and_books(authors, books_dict):
         session.commit()
 
         for book_data in books_dict:
-            book = Book(**Book.model_validate(book_data).dict())
+            book = Book(**Book.model_validate(book_data).model_dump())
             session.add(book)
 
         session.commit()
@@ -33,4 +33,6 @@ add_authors_and_books(authors, books)
 
 # cd test_graphql
 # source venv/bin/activate
+# uvicorn main:app --reload
+# control + c
 # python3 -m database.populate.populate_database

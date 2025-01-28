@@ -81,10 +81,15 @@
         title
         publicationYear
         genre
-        authorId
+        author {
+          id
+          name
+          age
+          nationality
+        }
     }
 }</code></pre>
-                <button @click='copyText($event, `mutation {\n    createBook(title: "${book.title}", publicationYear: ${book.publicationYear}, genre: "${book.genre}", authorId: ${book.authorId}) {\n        id\n        title\n        publicationYear\n        genre\n        authorId\n    }\n}`)' class="copy-btn">Copy</button>
+                <button @click='copyText($event, `mutation {\n    createBook(title: "${book.title}", publicationYear: ${book.publicationYear}, genre: "${book.genre}", authorId: ${book.authorId}) {\n        id\n        title\n        publicationYear\n        genre\n        author {\n          id\n          name\n          age\n          nationality\n        }\n    }\n}`)' class="copy-btn">Copy</button>
             </div>
         </div>
 
@@ -160,7 +165,12 @@ const queries = [
       title
       publicationYear
       genre
-      authorId
+      author {
+        id
+        name
+        age
+        nationality
+      }
   }
 }`
     },
@@ -208,7 +218,12 @@ const queries = [
       title
       publicationYear
       genre
-      authorId
+      author {
+        id
+        name
+        age
+        nationality
+      }
   }
 }`
   },
