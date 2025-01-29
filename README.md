@@ -168,5 +168,12 @@ mutation {
 }
 ```
 
+# Make a Postman Request
+To make a request to this API using Postman, use the following link.
+You'll use a POST request for both queries and mutations. Go to Body -> GraphQL and paste in your query.
+```
+https://api.bookql.com/grapqhl
+```
+
 # Attribution
 favicon by https://www.flaticon.com/authors/popo2021
