@@ -15,7 +15,7 @@ This is the GraphQL api I made for the [BookQL](https://www.target.com/) website
 ## How to Query the Api
 Open the following Link in your browser.
 ```
-https://api.bookql.com/grapqhl
+https://api.bookql.com/graphql
 ```
 
 # Queries
