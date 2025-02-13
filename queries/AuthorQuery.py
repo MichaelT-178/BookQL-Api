@@ -27,14 +27,14 @@ class AuthorQuery:
                             title=book.title,
                             publicationYear=book.publicationYear,
                             genre=book.genre,
-                            author_id=book.author_id
+                            author=None  # Set author to None to prevent infinite recursion
                         )
                         for book in author.books
-                    ]
+                    ] if author.books else None
                 )
                 for author in results
             ]
-        
+
     @strawberry.field
     def get_author(self, id: int) -> AuthorType:
         with Session(engine) as session:
@@ -54,8 +54,8 @@ class AuthorQuery:
                         title=book.title,
                         publicationYear=book.publicationYear,
                         genre=book.genre,
-                        author_id=book.author_id
+                        author=None  # Prevent recursion issues
                     )
                     for book in author.books
-                ]
+                ] if author.books else None
             )

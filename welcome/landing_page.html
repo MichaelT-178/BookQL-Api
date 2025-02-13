@@ -190,7 +190,6 @@ const queries = [
         title
         publicationYear
         genre
-        authorId
       }
   }
 }`
@@ -208,7 +207,6 @@ const queries = [
         title
         publicationYear
         genre
-        authorId
       }
   }
 }`
@@ -244,7 +242,12 @@ const queries = [
       title
       publicationYear
       genre
-      authorId
+      author {
+        id
+        name
+        age
+        nationality
+      }
   }
 }`
   }

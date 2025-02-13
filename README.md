@@ -33,7 +33,6 @@ query {
         title
         publicationYear
         genre
-        authorId
       }
   }
 }
@@ -70,7 +69,6 @@ query {
         title
         publicationYear
         genre
-        authorId
       }
   }
 }
@@ -109,7 +107,12 @@ query {
       title
       publicationYear
       genre
-      authorId
+      author {
+        id
+        name
+        age
+        nationality
+      }
   }
 }
 ```

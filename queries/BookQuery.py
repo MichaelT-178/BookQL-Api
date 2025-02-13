@@ -76,9 +76,12 @@ class BookQuery:
                     title=book.title,
                     publicationYear=book.publicationYear,
                     genre=book.genre,
-                    author_id=book.author_id
+                    author=AuthorType(
+                        id=book.author.id,
+                        name=book.author.name,
+                        age=book.author.age,
+                        nationality=book.author.nationality
+                    )
                 )
                 for book in results
             ]
-    
-    
