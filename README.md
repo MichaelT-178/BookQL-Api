@@ -3,7 +3,7 @@
 This is the GraphQL api I made for the [BookQL](https://github.com/MichaelT-W23/bookql-website) website.
 
 ## BookQL Website
-### [Link to BookQL Website](https://michaelt-w23.github.io/bookql-website/add-author)
+### [Link to BookQL Website](https://michaelt-w23.github.io/bookql-website)
 
 ## Technologies Used
 - GraphQL
