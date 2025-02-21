@@ -5,6 +5,9 @@ This is the GraphQL api I made for the [BookQL](https://github.com/MichaelT-W23/
 ## BookQL Website
 ### [Link to BookQL Website](https://michaelt-w23.github.io/bookql-website)
 
+## Backup 
+If the site is blocked by Cisco Umbrella, try this [link](https://bookql-api-mcp6.onrender.com/).
+
 ## Technologies Used
 - GraphQL
 - Python
