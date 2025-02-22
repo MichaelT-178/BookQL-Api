@@ -178,12 +178,19 @@ mutation {
 ```
 
 # Make a Postman Request
-To query this API using Postman, do the following. Make a POST request to this link. You'll do this for both queries and mutations. Then go to Body -> GraphQL and paste in your query.
+
+1. Make a **POST** request to the following link for both queries and mutations.
+
+2. **Configure the Request Body**  
+   - Go to the **Body** tab.
+   - Select **GraphQL**.
+   - Paste your query into the field.
+
 ```
 https://api.bookql.com/grapqhl
 ```
 
-If the link above is being blocked by Cisco Umbrella, use this link instead
+If Cisco Umbrella is blocking the link above, use this one instead.
 ```
 https://bookql-api-mcp6.onrender.com/graphql
 ```
