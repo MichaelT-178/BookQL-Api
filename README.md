@@ -181,7 +181,7 @@ mutation {
 
 1. Make a **POST** request to the following link for both queries and mutations.
 
-2. **Configure the Request Body**  
+2. Configure the Request Body
    - Go to the **Body** tab.
    - Select **GraphQL**.
    - Paste your query into the field.
