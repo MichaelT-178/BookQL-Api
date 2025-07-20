@@ -1,5 +1,5 @@
 # BookQL Api
-# [Api Landing Page](https://api.bookql.com/)
+# [Api Landing Page](https://bookql.com/)
 This is the GraphQL api I made for the [BookQL](https://github.com/MichaelT-W23/bookql-website) website.
 
 ## BookQL Website
@@ -22,7 +22,7 @@ If the Api Landing Page is being blocked by Cisco Umbrella, try this [link](http
 ## How to Query the Api
 Open the following Link in your browser.
 ```
-https://api.bookql.com/graphql
+https://bookql.com/graphql
 ```
 
 # Queries
@@ -188,7 +188,7 @@ mutation {
    - Paste your query into the field.
 
 ```
-https://api.bookql.com/grapqhl
+https://bookql.com/grapqhl
 ```
 
 If Cisco Umbrella is blocking the link above, use this one instead.
