@@ -37,7 +37,7 @@ async def serve_html():
     return HTMLResponse(content=html_file.read_text())
 
 @app.get('/contact', response_class=HTMLResponse)
-async def serve_html():
+async def serve_contact():
     html_file = pathlib.Path('welcome/contact_page.html')
     return HTMLResponse(content=html_file.read_text())
 
