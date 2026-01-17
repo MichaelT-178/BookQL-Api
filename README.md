@@ -1,10 +1,10 @@
 # BookQL Api
 # [Api Landing Page](https://bookql.com/)
-This is the GraphQL api I made for the [BookQL](https://github.com/MichaelT-W23/bookql-website) website.
+This is the GraphQL api I made for the [BookQL](https://vue.bookql.com/) website.
 
 ## BookQL Website
-- ### [Link to React Website](https://michaelt-w23.github.io/react-graphql/)
-- ### [Link to Vue Website](https://michaelt-w23.github.io/bookql-website/)
+- ### [Link to React Website](https://react.bookql.com/)
+- ### [Link to Vue Website](https://vue.bookql.com/)
 
 ## Backup 
 If the Api Landing Page is being blocked by Cisco Umbrella, try this [link](https://bookql-api-mcp6.onrender.com/) instead. It's the same as the other one, just without the domain name.
