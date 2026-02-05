@@ -1,6 +1,6 @@
 # BookQL Api
 # [Api Landing Page](https://bookql.com/)
-This is the GraphQL api I made for the [BookQL](https://vue.bookql.com/) website. Note that the current version of this api uses Flask, I'm not hosting this version anywhere.
+This is the GraphQL api I made for the [BookQL](https://vue.bookql.com/) website. Note that the current version of this api uses Flask, I'm not hosting this version anywhere (they're basically the exact same just different framework).
 
 ## BookQL Website
 - ### [Link to React Website](https://react.bookql.com/)
