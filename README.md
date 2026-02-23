@@ -6,9 +6,6 @@ This is the GraphQL api I made for the [BookQL](https://vue.bookql.com/) website
 - ### [Link to React Website](https://react.bookql.com/)
 - ### [Link to Vue Website](https://vue.bookql.com/)
 
-## Backup 
-If the Api Landing Page is being blocked by Cisco Umbrella, try this [link](https://bookql-api-mcp6.onrender.com/) instead. It's the same as the other one, just without the domain name.
-
 ## Technologies Used
 - GraphQL
 - Python
@@ -189,11 +186,6 @@ mutation {
 
 ```
 https://bookql.com/grapqhl
-```
-
-If Cisco Umbrella is blocking the link above, use this one instead.
-```
-https://bookql-api-mcp6.onrender.com/graphql
 ```
 
 # Attribution
