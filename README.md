@@ -13,7 +13,6 @@ This is the GraphQL api I made for the [BookQL](https://vue.bookql.com/) website
 - Strawberry
 - SQLite3
 - Petite-Vue (Landing Page)
-- Render 
 - Cloudflare
 
 ## How to Query the Api
